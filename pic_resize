@@ -50,15 +50,18 @@ resolution="$(exiftool "$src_full_path" 2> /dev/null | \
 # more complex stuff
 
 proportion=$($dir_name/find_proportion.py "$resolution" "$max_resolution_px")
->&2 echo "Dimensions must be reduced to $proportion % of original (in both axes)"
 
 if [ $proportion = "100" ] ; then
 	>&2 echo "Nothing to do here"
 	exit 0
+else
+	>&2 echo "Dimensions must be reduced to $proportion % of original (in both axes)"
 fi
 
 # A little bit long-winded, but hopefully this will work for all
 # kinds of files and paths
+#
+# TO DO : add an option to overwrite file
 
 src_base="$(basename "$src_full_path")"
 src_path="$(dirname "$src_full_path")"
