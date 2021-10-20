@@ -62,6 +62,7 @@ fi
 # kinds of files and paths
 #
 # TO DO : add an option to overwrite file
+# TO DO : add an option to convert file to JPEG
 
 src_base="$(basename "$src_full_path")"
 src_path="$(dirname "$src_full_path")"
